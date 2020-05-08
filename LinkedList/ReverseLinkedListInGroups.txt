@@ -1,0 +1,22 @@
+Problem:
+Given a linked list of size N. The task is to reverse every k nodes (where k is an input to the function) in the linked list.
+	
+Solution:
+public static Node reverse(Node node, int k)
+{
+         Node temp1=node; 
+         Node next=null;
+         Node prev=null; 
+         int count=0;
+         while(count<k && temp1!=null) {
+             next=temp1.next;
+             temp1.next=prev;
+             prev=temp1;
+             temp1=next; 
+             count++;
+         } 
+         if(next != null) {
+             node.next = reverse(next,k);
+         }
+         return prev;
+}	

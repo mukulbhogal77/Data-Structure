@@ -1,0 +1,11 @@
+Problem:
+Given a binary tree, the task is to print the nodes in inorder traversal of it
+
+Solution:
+ void inOrder(Node root)
+    {
+         if(root == null) return;
+         inOrder(root.left);
+         System.out.print(root.data + " ");
+         inOrder(root.right);
+    }

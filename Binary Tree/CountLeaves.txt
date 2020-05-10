@@ -1,0 +1,12 @@
+Problem:
+Given a Binary Tree of size N , You have to count leaves in it.
+Solution:
+int c=0;
+    int countLeaves(Node node) 
+    {
+        if(node==null) return 0;
+        int lc=countLeaves(node.left);
+        int rc=countLeaves(node.right);
+        if(lc==0 && rc==0) c++;
+        return c;
+    }

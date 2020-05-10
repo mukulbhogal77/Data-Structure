@@ -1,0 +1,11 @@
+Problem:
+Given a binary tree, print preorder traversal of it. The task is to complete the function preorder(), which accept root of the tree as argument.
+
+Solution:
+static void preorder(Node root)
+    {
+        if(root==null) return;
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
+    }

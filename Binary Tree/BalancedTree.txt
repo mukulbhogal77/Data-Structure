@@ -1,0 +1,31 @@
+Problem:
+Given a binary tree, find if it is height balanced or not. 
+A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree. 
+Solution:
+int checkheight(Node node) {
+        if(node==null) return 0;
+        int lh=checkheight(node.left);
+        int rh=checkheight(node.right);
+        if(lh>rh) return lh+1;
+        else return rh+1;
+    }
+    
+    boolean isBalanced(Node root)
+    {
+          Node left=null;Node right=null;
+    	  if(root==null)return true;
+    	  if(root.left!=null){
+        	  left=root.left;
+    	  }
+    	  if(root.right!=null){
+    	      right=root.right;
+    	  }
+    	  int lheight=checkheight(left)+1;
+    	  int rheight=checkheight(right)+1;
+    	  if(Math.abs(lheight-rheight) <= 1 
+        	 && isBalanced(root.left) 
+        	 && isBalanced(root.right)
+    	    ) 
+    	     return true;
+    	  return false;
+	}

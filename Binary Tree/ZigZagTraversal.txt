@@ -1,0 +1,30 @@
+Problem:
+Given a binary tree of size N, your task is to complete the function zigZagTraversal(), that prints the nodes of binary tree in ZigZag manner.
+Solution:
+	void zigZagTraversal(Node root)
+	{
+	    if(root==null) return;
+	    Stack<Node> s1=new Stack<>(); 
+	    Stack<Node> s2=new Stack<>(); 
+	    s1.push(root);
+	    int index=0;
+	    while(!s1.isEmpty()) {  
+	        Node temp=s1.pop();
+	        System.out.print(temp.data+" ");
+	        if(index%2==0){
+	            if(temp.left!=null) s2.push(temp.left);
+	            if(temp.right!=null) s2.push(temp.right);
+	        }
+	        else {
+	            if(temp.right!=null) s2.push(temp.right);
+	            if(temp.left!=null) s2.push(temp.left);
+	        }
+	        
+	        if(s1.isEmpty()) {
+	            index++;
+	            Stack<Node> tempp=s1;
+	            s1=s2;
+	            s2=tempp;
+	        }
+	    }
+	}

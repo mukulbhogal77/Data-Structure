@@ -1,0 +1,16 @@
+Problem:
+Given a Binary Tree, print Right view of it. Right view of a Binary Tree is set of nodes visible when tree is viewed from right side.
+Solution:
+int max=0;
+    void printright(Node root, int h){
+        if(root==null)return;
+        if(max<h){
+            System.out.print(root.data+" ");
+            max=h;
+        }
+        printright(root.right,h+1);
+        printright(root.left,h+1);
+    }
+    void rightView(Node node) {
+        printright(node,1); 
+    }

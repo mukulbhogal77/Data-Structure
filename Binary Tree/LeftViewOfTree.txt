@@ -1,0 +1,17 @@
+Problem:
+Given a Binary Tree, print Left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from Left side. The task is to complete the function leftView(), which accepts root of the tree as argument.
+Solution:
+int max=0;
+    void leftprint(Node root,int h) {
+        if(root==null) return;
+        if(max<h){
+            System.out.print(root.data+" ");
+            max=h;
+        }
+        leftprint(root.left,h+1);
+        leftprint(root.right,h+1);
+    }
+    void leftView(Node root)
+    {  
+        leftprint(root,1);  
+    }

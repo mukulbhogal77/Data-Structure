@@ -1,0 +1,13 @@
+Problem:
+Count BST nodes that lie in a given range
+Solution:
+public static int getCountOfNode(Node root,int x, int y)
+{ 
+    if(root==null) return 0;
+    if(root.data>=x && root.data<=y) {
+        return 1 + getCountOfNode(root.left,x,y) +
+        getCountOfNode(root.right,x,y); 
+    }
+    else if(root.data>x) return getCountOfNode(root.left,x,y);
+    return getCountOfNode(root.right,x,y); 
+}

@@ -1,0 +1,38 @@
+Problem:
+Given number of edges 'E' and vertices 'V' of a bidirectional graph. Your task is to build a graph through adjacency list and print the adjacency list for each vertex.
+Solution:
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    public static void addEdge(ArrayList<ArrayList<Integer>> adj, int edge1, int edge2) {
+        adj.get(edge1).add(edge2);
+        adj.get(edge2).add(edge1);
+    }
+    public static void printGraph(ArrayList<ArrayList<Integer>> adj){
+        for(int i=0;i<adj.size();i++){
+            System.out.print(i);
+            for(int j=0;j<adj.get(i).size();j++) {
+                System.out.print("-> "+adj.get(i).get(j));
+            }
+            System.out.println(); 
+        }
+    }
+    
+	public static void main (String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   int t=sc.nextInt();
+	   while(t-->0) {
+	       int v=sc.nextInt(); int e=sc.nextInt();
+	       ArrayList<ArrayList<Integer>> adj=new ArrayList<ArrayList<Integer>>(v);
+	       for(int i=0;i<v;i++)
+	           adj.add(new ArrayList<Integer>());
+	       for(int i=0;i<e;i++) {
+	           int edge1=sc.nextInt(); int edge2=sc.nextInt(); 
+	           addEdge(adj,edge1,edge2);
+	       }
+	       printGraph(adj);
+	   }
+	}
+}

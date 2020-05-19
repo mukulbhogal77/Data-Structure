@@ -1,0 +1,36 @@
+Problem:
+Given a list of non negative integers, arrange them in such a manner that they form the largest number possible.The result is going to be very large, hence return the result in the form of a string.
+Solution:
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    
+    public void compareArray(int[] arr, int n){
+        for(int i=0;i<n;i++){
+            
+        }
+    }
+    
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0){
+		    int n=sc.nextInt(); 
+		    int arr[]=new int[n];
+		    String str[]=new String[n];
+		    for(int i=0;i<n;i++){
+		        arr[i]=sc.nextInt();
+		        str[i]=String.valueOf(arr[i]);
+		    }
+		    Arrays.sort(str, (a,b) -> (b+a).compareTo(a+b));
+		    for(int i=0;i<n;i++) {
+		        System.out.print(str[i]);
+		    }
+		    System.out.println();
+		}
+	}
+}

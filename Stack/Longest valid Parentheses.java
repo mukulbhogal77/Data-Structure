@@ -3,6 +3,7 @@ Given a string S consisting of opening and closing parenthesis '(' and ')'. Find
 Solution:
 /*package whatever //do not write package name here */
 
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -11,21 +12,22 @@ class GFG {
     
     public static int checkValid(String str, int len) {
         int c=0;
-        Stack<Character> stack=new Stack<>();
+        Stack<Integer> stack=new Stack<>();
+        stack.push(-1);
         for(int i=0;i<len;i++) {
             char ch=str.charAt(i);
             if(ch=='(') {
-                stack.push(ch);
+                stack.push(i);
             }
             else {
+                stack.pop();
                 if(!stack.isEmpty())  
-                    if(stack.peek()=='(') {
-                        c++;
-                        stack.pop();
-                    }
+                    c=Math.max(c,i-stack.peek());
+                else 
+                    stack.push(i);
             }
         }
-        return c*2;
+        return c;
     }
     
 	public static void main (String[] args) {
